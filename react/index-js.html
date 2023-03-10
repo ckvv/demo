@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="app"></div>
+</body>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script>
+const e = React.createElement;
+class LikeButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: props.liked || false };
+  }
+
+  render() {
+    return e('button', { onClick: () => this.setState({ liked: !this.state.liked }),}, 
+      this.state.liked ? 'Like' : 'Dis Like'
+    )
+  }
+}
+
+const domContainer = document.querySelector('.app');
+
+ReactDOM.render(e('div',{}, [
+  e(LikeButton, { key: 0 }),
+  e(LikeButton, { key: 1, liked: true }),
+  e(LikeButton, { key: 2, liked: false}),
+]), domContainer);
+</script>
+</html>

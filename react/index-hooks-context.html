@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="btn"></div>
+  <div class="app">
+  </div>
+</body>
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+<script type="text/babel">
+const { useState, useContext, createContext } = React;
+
+const CountContext = React.createContext(1);
+function Button(props){
+  const [ count, setCount ] = useState(props.count);
+  return(
+    <CountContext.Provider value={count}>
+      <Label/>
+      <button onClick={()=> setCount(count+1)}>Count: {count}</button>
+    </CountContext.Provider>
+  )
+}
+Button.defaultProps = {
+  count: 0,
+}
+
+function Label() {
+  const count = useContext(CountContext);
+  return (<label>{count}</label>);
+}
+
+
+ReactDOM.render((
+  <div>
+    <Button count={1}/>
+  </div>
+), document.querySelector('.app'));
+</script>
+</html>

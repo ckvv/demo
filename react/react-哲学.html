@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="app"></div>
+</body>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+<script type="text/babel">
+
+  const products = [
+  {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
+  {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
+  {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
+  {category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
+  {category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
+  {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+];
+
+class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() { 
+    const { filterText, isStockedOnly } = this.props;
+    return (
+      <div>
+        <input type="text" value={filterText} onChange={(e)=> this.props.onFilterTextChange(e.target.value)}/>
+        <input type="checkbox" checked={isStockedOnly} onChange={(e)=> this.props.onIsStockedOnlyChange(e.target.checked)}/>
+       </div>
+    );
+  }
+}
+
+class ProductTable extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() { 
+    const { filterText, isStockedOnly, products } = this.props;
+    return (
+      <div>
+        {products.filter((product) => {
+          return product.name.includes(filterText) && (isStockedOnly !== true || product.stocked);
+        }).map((product => {
+          return (
+            <div key={product.name} style={{ color: product.stocked || 'red' }}>
+              <span>name: {product.name} </span>
+              <span>price: {product.price} </span>
+              <span>stocked: {`${product.stocked}`} </span>
+            </div>
+          );
+        }))}
+      </div>
+    );
+  }
+}
+
+class FilterableProductTable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filterText: '',
+      isStockedOnly: false,
+    }
+    this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+    this.handleIsStockedOnlyChange = this.handleIsStockedOnlyChange.bind(this);
+  }
+  handleFilterTextChange(filterText){
+    this.setState({
+      filterText,
+    });
+  }
+  handleIsStockedOnlyChange(isStockedOnly){
+    this.setState({
+      isStockedOnly,
+    });
+  }
+  render() { 
+    return ( 
+      <div>
+        <SearchBar
+         filterText={this.state.filterText}
+         isStockedOnly={this.state.isStockedOnly}
+         onFilterTextChange={this.handleFilterTextChange}
+         onIsStockedOnlyChange={this.handleIsStockedOnlyChange}
+        />
+        <ProductTable
+         filterText={this.state.filterText}
+         isStockedOnly={this.state.isStockedOnly}
+         products={products}
+        />
+      </div>
+     );
+  }
+}
+ 
+ReactDOM.render((
+  <FilterableProductTable products={products}/>
+), document.querySelector('.app'));
+</script>
+
+</html>
