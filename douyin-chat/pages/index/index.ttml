@@ -1,0 +1,9 @@
+<view class="home">
+    <view class="chat-list-wrapper">
+        <scroll-view scroll-y="{{true}}" class="chat-list" scroll-top="{{scrollTop}}">
+            <chat-item tt:for="{{chatList}}" src="{{item.src}}" reverse="{{item.reverse}}" content="{{item.content}}">
+            </chat-item>
+        </scroll-view>
+    </view>
+    <chat-input userInfo="{{userInfo}}" bindsend="sendMsg"></chat-input>
+</view>

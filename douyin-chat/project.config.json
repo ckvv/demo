@@ -1,0 +1,22 @@
+{
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "postcss": true,
+        "minified": true,
+        "newFeature": true,
+        "autoCompile": true,
+        "IDEPreviewHotRestartCache": true,
+        "mockUpdate": false,
+        "mockLogin": false
+    },
+    "appid": "testAppId",
+    "autoCompile": true,
+    "projectname": "douyin-chat",
+    "condition": {
+        "miniprogram": {
+            "current": -1,
+            "list": []
+        }
+    }
+}

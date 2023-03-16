@@ -1,0 +1,13 @@
+.home {
+  padding: 12px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chat-list-wrapper {
+  height: calc(100% - 160rpx);
+}
+
+.chat-list {
+  height: 100%;
+}

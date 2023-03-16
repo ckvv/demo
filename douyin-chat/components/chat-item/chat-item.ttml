@@ -1,0 +1,4 @@
+<view class="chat-item" style="flex-direction: {{ !reverse ? 'row' : 'row-reverse' }};">
+    <image class="avatar" src="{{src}}"></image>
+    <text class="content" selectable="{{false}}"> {{ content }} </text>
+</view>

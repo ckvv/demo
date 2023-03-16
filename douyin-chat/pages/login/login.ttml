@@ -1,0 +1,3 @@
+<view class="login">
+    <button class="g-button" type="primary" bindtap="login">登录</button>
+</view>

@@ -1,0 +1,16 @@
+.chat-input {
+    display: flex;
+    margin: 12px 0;
+}
+
+.g-input {
+    flex-grow: 1;
+    padding: 0 24rpx;
+    background-color: rgba(244, 245, 246, 1);
+}
+
+.g-button {
+    flex-grow: 0;
+    margin: 0 0 0 24rpx;
+    flex-shrink: 0;
+}

@@ -1,0 +1,6 @@
+<view class="chat-input">
+    <input class="g-input" value="{{content}}" bindinput="handleInput" bindconfirm="sendMsg" type="text"
+        placeholder="请输入内容"></input>
+    <view/>
+    <button class="g-button" bindtap="sendMsg" type="primary">发送</button>
+</view>
