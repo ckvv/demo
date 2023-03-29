@@ -1,3 +1,19 @@
+<script>
+export default {
+  onLaunch: function () {
+    console.log('App Launch')
+  },
+  onShow: function () {
+    console.log('App Show')
+  },
+  onHide: function () {
+    console.log('App Hide')
+  },
+}
+</script>
+
+<style>
+/*每个页面公共css */
 * {
   box-sizing: border-box;
   word-wrap: break-word;
@@ -22,3 +38,4 @@
   line-height: 80rpx;
   color: color(rec2020 0.42053 0.979780 0.00579);
 }
+</style>
