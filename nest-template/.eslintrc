@@ -1,0 +1,8 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "@typescript-eslint/consistent-type-imports": 0,
+    "semi": "off",
+    "@typescript-eslint/semi": ["error", "always"]
+  }
+}

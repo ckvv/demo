@@ -1,0 +1,42 @@
+{
+  "name": "nest-template",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.4.0",
+    "@nestjs/core": "^9.4.0",
+    "@nestjs/platform-express": "^9.4.0",
+    "@nestjs/mapped-types": "1.2.2",
+    "@nestjs/config": "^2.3.1",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "@antfu/eslint-config": "^0.38.5",
+    "@nestjs/cli": "^9.4.1",
+    "@nestjs/schematics": "^9.1.0",
+    "@types/express": "^4.17.17",
+    "@types/node": "18.16.0",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "^5.0.4"
+  }
+}
