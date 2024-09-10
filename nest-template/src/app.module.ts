@@ -1,10 +1,10 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import configuration from './config/configuration';
-import { UserModule } from './models/user/user.module';
-import { InfoModule } from './models/info/info.module';
 import { AppController } from './app.controller';
+import configuration from './config/configuration';
 import { LoggerMiddleware } from './middleware';
+import { InfoModule } from './models/info/info.module';
+import { UserModule } from './models/user/user.module';
 
 @Module({
   imports: [
