@@ -1,0 +1,8 @@
+Release/obj.target/hello/src/hello.o: ../src/hello.cpp \
+  /Users/chenkai/Desktop/node-api/cpp/node_modules/node-addon-api/napi.h \
+  /Users/chenkai/Library/Caches/node-gyp/20.15.0/include/node/node_api.h \
+  /Users/chenkai/Library/Caches/node-gyp/20.15.0/include/node/js_native_api.h \
+  /Users/chenkai/Library/Caches/node-gyp/20.15.0/include/node/js_native_api_types.h \
+  /Users/chenkai/Library/Caches/node-gyp/20.15.0/include/node/node_api_types.h \
+  /Users/chenkai/Desktop/node-api/cpp/node_modules/node-addon-api/napi-inl.h \
+  /Users/chenkai/Desktop/node-api/cpp/node_modules/node-addon-api/napi-inl.deprecated.h
