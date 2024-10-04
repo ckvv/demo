@@ -1,10 +1,10 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import configuration from './config/configuration';
-import { LoggerMiddleware } from './middleware';
-import { InfoModule } from './models/info/info.module';
-import { UserModule } from './models/user/user.module';
+import { LoggerMiddleware } from './common';
+import { UserModule, InfoModule } from './models';
 
 @Module({
   imports: [
@@ -13,6 +13,7 @@ import { UserModule } from './models/user/user.module';
     InfoModule,
   ],
   controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
